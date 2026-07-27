@@ -1,0 +1,71 @@
+,driver,pct,country,rank
+0,Shifting cultivation,50.667930400807904,Cameroon,1
+1,Permanent agriculture,40.0188732347731,Cameroon,2
+2,Logging,4.940855586643048,Cameroon,3
+3,Hard commodities,2.2718242471400427,Cameroon,4
+4,Settlements & Infrastructure,1.626450672979819,Cameroon,5
+5,Other natural disturbances,0.2887273810903432,Cameroon,6
+6,Wildfire,0.1853384765657335,Cameroon,7
+7,Permanent agriculture,53.922746140107414,Central African Republic,1
+8,Shifting cultivation,41.79530011903947,Central African Republic,2
+9,Wildfire,1.5815624841643723,Central African Republic,3
+10,Logging,1.2593824705268408,Central African Republic,4
+11,Hard commodities,0.8173628712426778,Central African Republic,5
+12,Settlements & Infrastructure,0.4940271345981685,Central African Republic,6
+13,Other natural disturbances,0.12961878032105986,Central African Republic,7
+14,Shifting cultivation,82.77783927109792,Democratic Republic of the Congo,1
+15,Permanent agriculture,13.923537894614189,Democratic Republic of the Congo,2
+16,Wildfire,1.140655971854116,Democratic Republic of the Congo,3
+17,Logging,0.7845520683733134,Democratic Republic of the Congo,4
+18,Hard commodities,0.525770130551241,Democratic Republic of the Congo,5
+19,Settlements & Infrastructure,0.4671553059988621,Democratic Republic of the Congo,6
+20,Other natural disturbances,0.38048935751036317,Democratic Republic of the Congo,7
+21,Shifting cultivation,58.351240899618396,Gabon,1
+22,Permanent agriculture,17.408860862269616,Gabon,2
+23,Logging,13.824641172066002,Gabon,3
+24,Hard commodities,4.502422257706568,Gabon,4
+25,Other natural disturbances,3.4411395888025837,Gabon,5
+26,Settlements & Infrastructure,2.2784558896496976,Gabon,6
+27,Wildfire,0.19323932988714174,Gabon,7
+28,Permanent agriculture,84.36746163824877,Nigeria,1
+29,Shifting cultivation,8.493051911891095,Nigeria,2
+30,Settlements & Infrastructure,4.864917063937861,Nigeria,3
+31,Hard commodities,1.1167156482468028,Nigeria,4
+32,Logging,0.831452934227341,Nigeria,5
+33,Other natural disturbances,0.2581592153504946,Nigeria,6
+34,Wildfire,0.06824158809763697,Nigeria,7
+35,Shifting cultivation,69.89912108289752,Republic of the Congo,1
+36,Wildfire,10.209055881479712,Republic of the Congo,2
+37,Logging,8.001811242641827,Republic of the Congo,3
+38,Permanent agriculture,7.603901801456623,Republic of the Congo,4
+39,Other natural disturbances,2.246056981162745,Republic of the Congo,5
+40,Hard commodities,1.2482148810501228,Republic of the Congo,6
+41,Settlements & Infrastructure,0.7918381293114458,Republic of the Congo,7
+42,Permanent agriculture,50.097267078399156,Rwanda,1
+43,Logging,42.89383723345988,Rwanda,2
+44,Settlements & Infrastructure,2.610157327138459,Rwanda,3
+45,Other natural disturbances,2.062439798288855,Rwanda,4
+46,Shifting cultivation,2.024666175609572,Rwanda,5
+47,Wildfire,0.2115322870039851,Rwanda,6
+48,Hard commodities,0.10010010010010009,Rwanda,7
+49,Permanent agriculture,83.52450732693279,Burundi,1
+50,Logging,11.715512885295604,Burundi,2
+51,Shifting cultivation,2.0186963112683176,Burundi,3
+52,Settlements & Infrastructure,1.9732187973724102,Burundi,4
+53,Other natural disturbances,0.6467913087417888,Burundi,5
+54,Wildfire,0.1212733703890854,Burundi,6
+55,Hard commodities,,Burundi,7
+56,Permanent agriculture,78.48792193825186,Tanzania,1
+57,Shifting cultivation,14.97162933655917,Tanzania,2
+58,Logging,4.592478977772176,Tanzania,3
+59,Settlements & Infrastructure,0.9873940294744974,Tanzania,4
+60,Other natural disturbances,0.40088328550779917,Tanzania,5
+61,Hard commodities,0.3667533692038481,Tanzania,6
+62,Wildfire,0.19293906323064894,Tanzania,7
+63,Permanent agriculture,79.68136272709319,Uganda,1
+64,Logging,15.38501252602931,Uganda,2
+65,Shifting cultivation,2.5655209262951555,Uganda,3
+66,Settlements & Infrastructure,1.1500017619210348,Uganda,4
+67,Other natural disturbances,1.0378124644030489,Uganda,5
+68,Wildfire,0.10522356319437104,Uganda,6
+69,Hard commodities,0.07506603106389709,Uganda,7
