@@ -776,6 +776,7 @@ css_html = '''
 .leaflet-control-layers-expanded {
     padding: 8px;
     width: 160px;
+    max-height: none !important;
 }
 
 .leaflet-control-layers label {
@@ -790,7 +791,7 @@ css_html = '''
 }
 
 .leaflet-control-layers-scrollbar {
-    display: none;
+    overflow: visible !important;
 }
 .leaflet-control-layers-toggle {
     background-size: 20px;

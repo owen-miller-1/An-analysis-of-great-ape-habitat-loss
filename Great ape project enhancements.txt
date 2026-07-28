@@ -1,2 +1,0 @@
-Rerun pipeline with country level and number of pixels to be able to add to comparison of inside vs outside PA forest loss and add missing countries
-Add caveat about tree growth/gain
