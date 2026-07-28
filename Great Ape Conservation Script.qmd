@@ -1,4 +1,4 @@
-
+---
 title: "The plight of great apes"
 subtitle: "A spatial analysis of tree cover loss and protected area effectiveness, 2001–2025"
 author: "Owen Miller"
