@@ -6,3 +6,4 @@ shapely
 rasterio
 openpyxl
 tabulate
+jupyter
