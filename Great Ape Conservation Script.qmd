@@ -755,14 +755,6 @@ css_html = '''
     margin-right: 10px;
 }
 
-.leaflet-control-layers-expanded {
-    display: block !important;
-    max-height: none !important;
-    overflow: visible !important;
-    padding: 8px;
-    width: 160px;
-}
-
 .leaflet-control-layers {
     font-family: Arial;
     font-size: 14px;
@@ -781,6 +773,10 @@ css_html = '''
     border-bottom: 1px solid #eeeeee;
 }
 
+.leaflet-control-layers-expanded {
+    padding: 8px;
+    width: 160px;
+}
 
 .leaflet-control-layers label {
     margin-bottom: 6px;
@@ -793,14 +789,12 @@ css_html = '''
     font-size: 13px;
 }
 
+.leaflet-control-layers-scrollbar {
+    display: none;
+}
 .leaflet-control-layers-toggle {
     background-size: 20px;
 }
-
-.leaflet-control-layers-scrollbar {
-    display: none !important;
-}
-
 </style>
 '''
 m_asia.get_root().html.add_child(folium.Element(css_html))
@@ -828,7 +822,7 @@ m_asia.save('asia_map.html')
   </button>
 </div>
 
-<div id="panel-africa" style="border: 2px solid #dee2e6; border-radius: 0 4px 4px 4px; padding: 15px 15px 8px 15px; margin-bottom: 0;">
+<div id="panel-africa" style="border: 1px solid #dee2e6; border-radius: 0 4px 4px 4px; padding: 15px 15px 8px 15px; margin-bottom: 0;">
 
   <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin-left: 10px; margin-bottom: 4px;">Protected areas within great ape ranges, Africa</p>
   <p style="font-size: 13px; font-family: Roboto; font-style: italic; color: #555; margin-left: 10px; margin-bottom: 8px;">Click layers to toggle species and protected areas on and off</p>
@@ -844,7 +838,7 @@ m_asia.save('asia_map.html')
   </div>
 </div>
 
-<div id="panel-asia" style="display:none; border: 2px solid #dee2e6; border-radius: 0 4px 4px 4px; padding: 15px 15px 8px 15px; margin-bottom: 0;">
+<div id="panel-asia" style="display:none; border: 1px solid #dee2e6; border-radius: 0 4px 4px 4px; padding: 15px 15px 8px 15px; margin-bottom: 0;">
   <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin-left: 10px; margin-bottom: 4px;">Protected areas within great ape ranges, Asia</p>
   <p style="font-size: 13px; font-family: Roboto; font-style: italic; color: #555; margin-left: 10px; margin-bottom: 8px;">Click layers to toggle species and protected areas on and off</p>
   <iframe src="asia_map.html" width="100%" height="600px" frameborder="0"></iframe>
