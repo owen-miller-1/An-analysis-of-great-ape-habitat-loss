@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+
+.card-inner {
+  position: relative;
+}
+
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.9s ease;
+}
+  </style>
+</head>
+<body>
+<div style="display: flex; flex-wrap: wrap; gap: 16px; width: 650px;">
+
+<!-- ============================================================================================================= -->
+<!-- Orangutan Card -->
+<!-- ============================================================================================================= -->
+
+<div style="border: 2px solid #dee2e6; border-radius: 4px; padding: 5px 5px 5px 10px; margin-bottom: 0; box-sizing: border-box; width: 290px; height: 300px; position: relative;">
+
+<!-- FRONT -->
+ <div id="orangutan-front" onclick="toggleCard('orangutan')" style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; opacity: 1; transition: opacity 0.9s ease;">
+ <img src="Images/Orangutan silhouette.png" height="125" style="margin-left: 100px; margin-top: 30px; margin-bottom: 5px;">
+ <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin: 0; text-align:center;">Orangutans (<i>Pongo</i>)</p>
+ <p style="font-size: 16px; font-family: Roboto; margin: 0; margin-top: 8px; font-weight: bold; text-align:center;"> <span style="color: #F03431;">Critically Endangered</span> </p>
+ <p style="font-size: 14px; font-family: Roboto; margin: 0; margin-top: 8px; text-align:center;"> <i>Click to expand subspecies </i></p>
+</div>
+
+<!-- BACK -->
+  <div id="orangutan-back" onclick="toggleCard('orangutan')" 
+  style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; overflow: hidden; opacity: 0; transition: opacity 0.9s ease;">
+    <p style="font-size: 14px !important; font-family: Roboto; font-weight: bold; margin: 0; margin-bottom: 10px; margin-top: 10px; text-align:center;">Subspecies and population estimates</p>
+    <table style="width: 100%; font-size: 12px !important; font-family: Roboto; border-collapse: collapse;">
+      <tr>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Subspecies</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Population*</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Year</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px; width: 40px;">Status</th>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Bornean</td>
+        <td style="padding: 4px 5px;">~104,700</td>
+        <td style="padding: 4px 5px;">2017</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Sumatran</td>
+        <td style="padding: 4px 5px;">13,846</td>
+        <td style="padding: 4px 5px;">2017</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Tapanuli</td>
+        <td style="padding: 4px 5px;">~800</td>
+        <td style="padding: 4px 5px;">2018</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+    </table>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 16px; font-family: Roboto;">*Estimates based on infrequent ground surveys and likely overestimate current populations.</p>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 4px; font-family: Roboto; text-align:center;"> Click to go back</p>
+  </div>
+</div>
+
+
+<!-- ============================================================================================================= -->
+<!-- Gorilla Card -->
+<!-- ============================================================================================================= -->
+
+<div style="all: initial;width: 290px; height: 300px; border: 2px solid #dee2e6; box-sizing: border-box; border-radius: 4px; position: relative;">
+  <!-- FRONT -->
+  <div id="gorilla-front" onclick="toggleCard('gorilla')" 
+  style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; opacity: 1; transition: opacity 0.9s ease;">
+    <img src="Images/Gorilla silhouette.png" height="120" style="display: block; margin: 0 auto; margin-top: 30px; margin-bottom: 10px;">
+    <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin: 0; text-align:center;">Gorillas (<i>Gorilla</i>)</p>
+    <p style="font-size: 16px; font-family: Roboto; margin: 0; margin-top: 8px; font-weight: bold; text-align:center;"><span style="color: #F03431;">Critically Endangered</span></p>
+    <p style="font-size: 14px; font-family: Roboto; margin: 0; margin-top: 8px; text-align:center;"> <i>Click to expand subspecies</i></p>
+  </div>
+  <!-- BACK -->
+  <div id="gorilla-back" onclick="toggleCard('gorilla')" 
+  style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; overflow: hidden; opacity: 0; transition: opacity 0.9s ease;">
+    <p style="font-size: 14px !important; font-family: Roboto; font-weight: bold; margin: 0; margin-bottom: 10px; margin-top: 10px; text-align:center;">Subspecies and population estimates</p>
+    <table style="width: 100%; font-size: 12px !important; font-family: Roboto; border-collapse: collapse;">
+      <tr>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Subspecies</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Population*</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Year</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px; width: 40px;">Status</th>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Western Lowland</td>
+        <td style="padding: 4px 5px;">~362,000</td>
+        <td style="padding: 4px 5px;">2013</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Cross River</td>
+        <td style="padding: 4px 5px;">250–300</td>
+        <td style="padding: 4px 5px;">2015</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Mountain</td>
+        <td style="padding: 4px 5px;">~1,000</td>
+        <td style="padding: 4px 5px;">2018</td>
+        <td style="padding: 4px 5px;"><span style="color: #e67e22;">EN</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Grauer's</td>
+        <td style="padding: 4px 5px;">~3,800</td>
+        <td style="padding: 4px 5px;">2015</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+    </table>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 16px; font-family: Roboto;">*Estimates based on infrequent ground surveys and likely overestimate current populations.</p>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 4px; font-family: Roboto; text-align:center;"> Click to go back</p>
+  </div>
+</div>
+
+
+<!-- ============================================================================================================= -->
+<!-- Chimpanzee Card -->
+<!-- ============================================================================================================= -->
+
+<div style="all: initial;width: 290px; height: 300px; border: 2px solid #dee2e6; box-sizing: border-box; border-radius: 4px; position: relative;">
+<!-- FRONT -->
+ <div id="chimp-front" onclick="toggleCard('chimp')" style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; opacity: 1; transition: opacity 0.9s ease;">
+ <img src="Images/Chimp silhouette.png" height="120" style="margin-left: 100px;">
+ <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin: 0; text-align:center;">Gorillas (<i>Pan troglodytes</i>)</p>
+ <p style="font-size: 16px; font-family: Roboto; margin: 0; margin-top: 8px; font-weight: bold; text-align:center;"><span style="color: #e67e22;">Endangered</span></p>
+  <p style="font-size: 14px; font-family: Roboto; margin: 0; margin-top: 8px; text-align:center;"> <i>Click to expand subspecies</i></p>
+</div>
+
+<!-- BACK -->
+  <div id="chimp-back" onclick="toggleCard('chimp')" 
+  style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; overflow: hidden; opacity: 0; transition: opacity 0.9s ease;">
+    <p style="font-size: 14px !important; font-family: Roboto; font-weight: bold; margin: 0; margin-bottom: 10px; margin-top: 10px; text-align:center;">Subspecies and population estimates</p>
+    <table style="width: 100%; font-size: 12px !important; font-family: Roboto; border-collapse: collapse;">
+      <tr>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Subspecies</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Population*</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px;">Year</th>
+        <th style="border-bottom: 1px solid #dee2e6; text-align: left; padding: 4px 5px; width: 40px;">Status</th>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Western</td>
+        <td style="padding: 4px 5px;">18,000–65,000</td>
+        <td style="padding: 4px 5px;">2016</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Nigeria-Cameroon</td>
+        <td style="padding: 4px 5px;"><6000</td>
+        <td style="padding: 4px 5px;">2015</td>
+        <td style="padding: 4px 5px;"><span style="color: #F03431;">CR</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Central</td>
+        <td style="padding: 4px 5px;">~140,000</td>
+        <td style="padding: 4px 5px;">2016</td>
+        <td style="padding: 4px 5px;"><span style="color: #e67e22;">EN</span></td>
+      </tr>
+      <tr>
+        <td style="padding: 4px 5px;">Eastern</td>
+        <td style="padding: 4px 5px;">170,000–250,000</td>
+        <td style="padding: 4px 5px;">2015</td>
+        <td style="padding: 4px 5px;"><span style="color: #e67e22;">EN</span></td>
+      </tr>
+    </table>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 16px; font-family: Roboto;">*Estimates based on infrequent ground surveys and likely overestimate current populations.</p>
+    <p style="font-size: 12px !important; color: #999999; margin-top: 4px; font-family: Roboto; text-align:center;"> Click to go back</p>
+  </div>
+</div>
+
+
+<!-- ============================================================================================================= -->
+<!-- Bonobo Card -->
+<!-- ============================================================================================================= -->
+
+<div style="all: initial;width: 290px; height: 300px; border: 2px solid #dee2e6; box-sizing: border-box; border-radius: 4px; position: relative;">
+
+<!-- FRONT -->
+ <div id="bonobo-front" onclick="toggleCard('bonobo')" style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; opacity: 1; transition: opacity 0.9s ease;">
+ <img src="Images/Bonobo silhouette.png"height="120" style="margin-left: 100px;">
+ <p style="font-size: 20px; font-family: Roboto; font-weight: bold; margin: 0; text-align:center;">Bonobos (<i>Pan paniscus</i>)</p>
+ <p style="font-size: 16px; font-family: Roboto; margin: 0; margin-top: 8px; font-weight: bold; text-align:center;"> <span style="color: #e67e22;">Endangered</span> </p>
+  <p style="font-size: 14px; font-family: Roboto; margin: 0; margin-top: 8px; text-align:center;"><i>Click to learn more</i></p>
+</div>
+
+<!-- BACK -->
+ <div id="bonobo-back" onclick="toggleCard('bonobo')" style="cursor: pointer; padding: 10px; position: absolute; top: 0; left: 0; width: 100%; box-sizing: border-box; overflow: hidden; opacity: 0; transition: opacity 0.9s ease;">
+  <p style="font-size: 14px !important; font-family: Roboto; margin: 0; margin-bottom: 10px; margin-top: 10px; text-align:center;"> Unlike other great apes, bonobos have no recognized subspecies. They exist as a single population confined entirely to the Congo Basin. <br> </br> A 2016 survey estimated the population of bonobos to be between 15,000 and 20,000 individuals.</p>
+ </div>
+
+</div>
+
+
+
+
+
+
+
+<script>
+function toggleCard(name) {
+  var front = document.getElementById(name + '-front');
+  var back = document.getElementById(name + '-back');
+  if (front.style.opacity === '0') {
+    front.style.opacity = '1';
+    back.style.opacity = '0';
+  } else {
+    front.style.opacity = '0';
+    back.style.opacity = '1';
+  }
+}
+  </script>
+
+</body>
+</html>

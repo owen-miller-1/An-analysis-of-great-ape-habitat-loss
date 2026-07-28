@@ -5,10 +5,4 @@ __pycache__/
 _site/
 .quarto/
 *_files/
-*.html
 *.quarto_ipynb*
-WDPA_Jul2026_Public_shp_0/
-WDPA_Jul2026_Public_shp_1/
-WDPA_Jul2026_Public_shp_2/
-WDPA_Jul2026_Public_shp_2.zip
-MAMMALS_TERRESTRIAL_ONLY/
