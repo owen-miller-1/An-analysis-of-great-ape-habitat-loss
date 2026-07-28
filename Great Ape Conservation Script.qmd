@@ -310,7 +310,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Load data
-df = pd.read_csv(r'C:\Users\yuan\OneDrive - United Nations\Desktop\Career\Great Ape Conservation Project\Forest_data.csv', encoding='latin-1')
+df = pd.read_csv('Forest_data.csv', encoding='latin-1')
 
 ape_countries = [
     'Democratic Republic of the Congo', 'Cameroon', 'Gabon',
@@ -476,7 +476,7 @@ fig_bar.show()
 
 <div style="height: 15px;"></div>
 
-Oragutan habitat is under immense pressure. In just the last 25 years, forest cover in Malaysia and Indonesia has decreased by 33% and 20%, respectively. The tropical forests in these countries are the last places on Earth where wild orangutans exist. The primary drivers of deforestation in this region are the conversion of forest to permanent agriculture, inclduing palm oil plantations, and industrial logging (both legal and illegal). Wildfires linked to land clearing are an additional driver in Indonesia.
+Orangutan habitat is under immense pressure. In just the last 25 years, forest cover in Malaysia and Indonesia has decreased by 33% and 20%, respectively. The tropical forests in these countries are the last places on Earth where wild orangutans exist. The primary drivers of deforestation in this region are the conversion of forest to permanent agriculture, inclduing palm oil plantations, and industrial logging (both legal and illegal). Wildfires linked to land clearing are an additional driver in Indonesia.
 
 African countries inhabited by apes lost a combined 40.6 million hectares of forest between 2001 and 2025, an area larger than Germany. The Democratic Republic of the Congo, which contains crucial habitat for all three species of African great apes, accounts for more than half of this figure. In Africa, the leading cause of deforestation is agricultural expansion, with both permanent agriculture and shifting cultivation as dominant drivers. 
 
@@ -516,8 +516,8 @@ from folium import GeoJson, LayerControl
 import geopandas as gpd
 
 #Import shape files
-ape_ranges = gpd.read_file(r'C:\Users\yuan\OneDrive - United Nations\Desktop\Career\Great Ape Conservation Project\Ape_ranges.shp')
-protected_areas = gpd.read_file(r'C:\Users\yuan\OneDrive - United Nations\Desktop\Career\Great Ape Conservation Project\PAs_within_ape_ranges.shp')
+ape_ranges = gpd.read_file('Ape_ranges.shp')
+protected_areas = gpd.read_file('PAs_within_ape_ranges.shp')
 
 # Fix protected areas CRS
 protected_areas = protected_areas.set_crs('EPSG:4326')
@@ -1075,10 +1075,10 @@ Notably, percentage coverage does not always track absolute protection. DR Congo
 
 By contrast, Rwanda has one of the highest protection percentages, but a comparatively tiny ape range. That smaller, more concentrated range may have made sustained, effective conservation more achievable. Rwanda's protected areas have contributed to one of the few success stories in great ape conservation, as its native mountain gorilla population is the only great ape taxon known to be increasing [@plumptre2019]. 
 
-While important, coverage percentage alone cannot indicate enforcement quality. The following section examine whether protected status corresponds to measurably lower forest loss.
+While important, coverage percentage alone cannot indicate enforcement quality. The following section examines whether protected status corresponds to measurably lower forest loss.
 
 ## Does protection reduce forest loss?
-Despite gerenally low coverage of protected areas within great ape range, their effectiveness is nonetheless an important consideration for conservation. If the protected areas demonstrably reduce habitat loss, this strengthens the case for their continued establishment and enforcement. The figure below shows cumulative and annual forest loss within and outside of established protected areas, both regionally and, using the menu, for individual countries.    
+Despite generally low coverage of protected areas within great ape range, their effectiveness is nonetheless an important consideration for conservation. If the protected areas demonstrably reduce habitat loss, this strengthens the case for their continued establishment and enforcement. The figure below shows cumulative and annual forest loss within and outside of established protected areas, both regionally and, using the menu, for individual countries.    
 
 ```{python}
 #| output: false
@@ -1398,14 +1398,14 @@ fig_line_pa.show()
 
 As the figure shows, forest loss within protected areas was meaningfully lower than outside protected areas, by approximately 63% in Africa and 73% in Asia. The most dramatic effect is Malaysia, where forest loss inside protected areas (1.9%) was roughly 94% lower than outside (31.7%). This gap suggests that expanding protected coverage, currently just a fifth of Malaysia's great ape range, may offer real conservation returns, though effectiveness likely depends on enforcement capacity. 
 
-Another interesting phenomeneon can be observed in Indonesia. Ranges within Indonesian protected areas have consistently lower forest loss than outside of them, but in 2016, this pattern reversed. Forest loss within protected areas increased to a full 1% *greater* than outside protected areas. This can be attributed to an especially disastrous wildfire season, showing that fire and other extreme climate events do not respect protection boundaries the way deliberate clearing or logging does.
+Another interesting phenomenon can be observed in Indonesia. Ranges within Indonesian protected areas have consistently lower forest loss than outside of them, but in 2016, this pattern reversed. Forest loss within protected areas increased to a full 1% *greater* than outside protected areas. This can be attributed to an especially disastrous wildfire season, showing that fire and other extreme climate events do not respect protection boundaries the way deliberate clearing or logging does.
 
 The data also point to effective protection in Rwanda, where high protection percentages correspond to substantially reduced forest loss by over 10-fold (90.4% less), reinforcing the earlier point that Rwanda's high coverage percentage reflects a real conservation outcome, not just a favorable statistic. However, Rwanda's  extremely small ape range is likely also a factor in this effectiveness; a smaller, more concentrated area may simply be easier to protect consistently than a larger one. 
 
 Republic of Congo offers a useful comparison. It has a much larger ape range, but a comparable protection percentage. Here, forest loss inside protected areas was only about 2% lower than outside over the full period (a 54.5% relative reduction), a far smaller gap than Rwanda's. Concerningly, by 2024 and 2025, that gap had nearly disappeared, with loss rates inside and outside protected areas converging to nearly identical levels.
 
 ## Conclusion
-It is difficult to overstate the seriousness of the situation facing great apes in the wild today. All four genera are on the brink of extinction. The countries they inhabit lost a combined 84 million hectares of forest in just the past 25 years, a decerease of 11.8% compared to forest extent in 2000. The cause of forest loss varies by country, but the primary drivers are agricultural conversion and logging. 
+It is difficult to overstate the seriousness of the situation facing great apes in the wild today. All four genera are on the brink of extinction. The countries they inhabit lost a combined 84 million hectares of forest in just the past 25 years, a decrease of 11.8% compared to forest extent in 2000. The cause of forest loss varies by country, but the primary drivers are agricultural conversion and logging. 
 
 Governments have established protected areas to slow this trend. This analysis found that forest loss is substantially lower within protected areas in great ape ranges: 63% in African countries and 73% in Asian countries. While this is an encouraging result, only about a quarter of confirmed ape ranges fall within protected areas. Effectiveness also varies greatly by country. In Malaysia, the rate of forest loss was 94% less within protected great ape ranges,  striking result that could support the case for further establishment and enforcement of PAs in the region. Conversely, the rate of loss in countries like the DR Congo and Republic of Congo was closer to 55-60% lower within PAs than outside of them - still meaningful, but a noticeably smaller effect. Protection also appears to be more effective against deliberate clearing and logging than against unpredictable climate events, as Indonesia's 2015–16 fire season illustrated, when loss inside protected areas briefly exceeded loss outside them entirely. 
 
