@@ -1,6 +1,6 @@
 ---
 title: "The plight of great apes"
-jupyter: geo
+jupyter: python3
 subtitle: "A spatial analysis of tree cover loss and protected area effectiveness, 2001–2025"
 author: "Owen Miller"
 date: August 6, 2026
