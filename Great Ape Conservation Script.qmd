@@ -3,7 +3,7 @@ title: "The plight of great apes"
 jupyter: python3
 subtitle: "A spatial analysis of tree cover loss and protected area effectiveness, 2001–2025"
 author: "Owen Miller"
-date: August 6, 2026
+date: August 20, 2026
 format:
   html:
     theme: flatly
@@ -66,7 +66,7 @@ th, td {
 >
 > — John Mitani (primatologist, University of Michigan) [@sherburne2024]
 
-*This analysis examines 25 years of satellite-derived tree cover data within the ranges of all four great ape genera: chimpanzees, gorillas, bonobos, and orangutans. Between 2001 and 2025, primary great ape range countries lost approximately 84 million hectares of tree cover, equivalent to 11.8% of their combined tree cover extent in 2000. The rate of forest loss is substantially lower in protected areas, by roughly 63% in Africa and 73% in Asia. Yet only a quarter of known great ape habitat falls within protected areas. The data suggest that protection helps, but far too little habitat is protected, and loss continues even within protected boundaries. Without urgent action, the forests these animals depend on may disappear within our lifetime. And with them, our closest relatives on Earth.*      
+*This analysis examines 25 years of satellite-derived tree cover data within the ranges of all four great ape genera: chimpanzees, gorillas, bonobos, and orangutans. Between 2001 and 2025, primary great ape range countries lost approximately 84 million hectares of tree cover, equivalent to 11.8% of their combined tree cover extent in 2000. The rate of forest loss is substantially lower in protected areas, by roughly 63% in Africa and 73% in Asia. Yet only a fifth of known great ape habitat falls within protected areas. The data suggest that protection helps, but far too little habitat is protected, and loss continues even within protected boundaries. Without urgent action, the forests these animals depend on may disappear within our lifetime. And with them, our closest relatives on Earth.*      
 
 
 ## Overview
@@ -294,13 +294,13 @@ Even when considering the upper bounds of these estimates, the total population 
 ## Methodology
 
 ### Scope
-This analysis covers 12 countries representing the core great ape range across equatorial Africa and Southeast Asia: Cameroon, Central African Republic, Democratic Republic of the Congo, Gabon, Nigeria, Republic of the Congo, Rwanda, Burundi, Tanzania, Uganda, Indonesia, and Malaysia. Full native chimpanzee range extends further into West and parts of East Africa, and is not represented here.
+This analysis covers 13 countries representing the core great ape range across equatorial Africa and Southeast Asia: Cameroon, Central African Republic, Democratic Republic of the Congo, Equatorial Guinea, Gabon, Nigeria, Republic of the Congo, Rwanda, Burundi, Tanzania, Uganda, Indonesia, and Malaysia. Full native chimpanzee range extends further into West and parts of East Africa, and is not represented here.
 
 ### Data sources
 Forest cover data is sourced from the Hansen Global Forest Change (GFC) dataset (GFC-2025-v1.13) [@hansen2013]. Forest is defined as areas with tree canopy cover greater than 10% in 2000, following the Food and Agricultural Organization definition. Protected area boundaries are sourced from the World Database on Protected Areas [@unepwcmc2026], and great ape range polygons from the IUCN Red List of Threatened Species spatial data. Methodological detail, including the rationale for the canopy threshold and the distinction between mapped range and true habitat, is available in [Methodological notes](#methodological-notes) below. See [Sources](#sources) for full citations. 
 
 ### Approach
-The protected area effectiveness analysis clips Hansen raster data to confirmed great ape range polygons and classifies pixels as inside or outside protected areas using WDPA boundaries, comparing annual and cumulative forest loss rates (as a percentage of 2000 forest extent) between the two groups.
+The protected area effectiveness analysis clips Hansen raster data to confirmed great ape range polygons and classifies pixels as inside or outside protected areas using WDPA boundaries, comparing cumulative and annual forest loss rates (as a percentage of 2000 forest extent) between the two groups.
 
 ## Habitat loss
 
@@ -318,7 +318,7 @@ df = pd.read_csv('Forest_data.csv', encoding='latin-1')
 ape_countries = [
     'Democratic Republic of the Congo', 'Cameroon', 'Gabon',
     'Republic of the Congo', 'Central African Republic', 'Nigeria',
-    'Uganda', 'Rwanda', 'Burundi', 'Tanzania',
+    'Uganda', 'Rwanda', 'Burundi', 'Tanzania', 'Equatorial Guinea',
     'Indonesia', 'Malaysia'
 ]
 
@@ -429,6 +429,7 @@ fig_bar.add_trace(go.Bar(
     hovertemplate='<b>%{y}</b><br>Cumulative tree cover loss: %{x:.2f} Mha<extra></extra>'
 ))
 fig_bar.update_layout(
+    width = 750,
     title=dict(
         text='<b>Forest loss by country, 2001–2025</b><br>'
              '<sup><i>Cumulative loss in millions of hectares</i></sup>',
@@ -891,7 +892,7 @@ function showMap(region) {
 ```
 <div style="height: 20px;"></div>
 
-What immediately jumps out from the figure is the large proportion of great ape ranges which have no protection status at all. Upon further analysis, the data shows that only 25.6% of mapped ape ranges fall within protected areas. This 25.6% figure varies considerably by country, however. The figure below presents the percentage and cumulative amount of great ape range which falls within a protected area, broken down by country.    
+What immediately jumps out from the figure is the large proportion of great ape ranges which have no protection status at all. Upon further analysis, the data shows that only 19.8% of mapped ape ranges fall within protected areas. This 19.8% figure varies considerably by country, however. The figure below presents the percentage and cumulative amount of great ape range which falls within a protected area, broken down by country.    
 
 
 ```{python}
@@ -906,7 +907,8 @@ coverage_df['pa_area_mha'] = coverage_df['pa_area_ha'] / 1_000_000
 country_names = {
     'Democratic Republic of the Congo': 'DR Congo',
     'Republic of the Congo': 'Rep. of Congo',
-    'Central African Republic': 'Central African Rep.'
+    'Central African Republic': 'Central African Rep.',
+    'Equatorial Guinea': 'Eq. Guinea'
 }
 coverage_df['country'] = coverage_df['country'].replace(country_names)
 
@@ -984,6 +986,7 @@ fig_coverage_area.add_trace(go.Bar(
     hovertemplate='<b>%{y}</b><br>Protected area coverage: %{x:.2f} Mha<extra></extra>'
 ))
 fig_coverage_area.update_layout(
+    width = 750,
     title=dict(
         text='<b>Total ape range vs. protected area coverage, by country</b><br>'
              '<sup><i>Cumulative area in millions of hectares</i></sup>',
@@ -1035,29 +1038,30 @@ fig_coverage_area.show()
 ```
 ## Summary Table
 
-<p style="font-size: 16px; text-align: left; font-family: Roboto; margin-bottom: 5px; color: #000000;"><b>Great ape range and protected area coverage by country</b></p>
+<p style="font-size: 16px; text-align: left; font-family: Roboto; margin-bottom: 5px; color: #000000;"><b>Great ape range and protected area coverage, by country</b></p>
 
 | Country              |   Ape Range (Mha) |   PA Coverage (Mha) |   % Protected |
 |:---------------------|------------------:|--------------------:|--------------:|
-| Nigeria              |              3.06 |                1.96 |          64.2 |
-| Uganda               |              2.03 |                1.29 |          63.6 |
-| Rep. of Congo        |             24.67 |               14.44 |          58.5 |
-| Rwanda               |              0.26 |                0.14 |          56.5 |
-| Tanzania             |              1.66 |                0.48 |          28.8 |
-| Gabon                |             25.47 |                6.71 |          26.3 |
-| Indonesia            |             23.56 |                5.07 |          21.5 |
-| DR Congo             |            123.03 |               25.49 |          20.7 |
-| Malaysia             |              4.92 |                1.01 |          20.5 |
-| Cameroon             |             23.49 |                4.22 |          18.0 |
-| Central African Rep. |             12.78 |                1.92 |          15.0 |
-| Burundi              |              0.62 |                0.05 |          8.30 |
-| **Total**            |        **245.55** |           **62.78** |      **25.6** |
+| Nigeria              |              3.06 |                1.71 |          56.1 |
+| Rwanda               |              0.26 |                0.12 |          48.2 |
+| Rep. of Congo        |             24.67 |               10.06 |          40.8 |
+| Uganda               |              2.03 |                0.82 |          40.6 |
+| Tanzania             |              1.66 |                0.40 |          24.1 |
+| Gabon                |             25.47 |                5.30 |          20.8 |
+| Malaysia             |              4.92 |                0.93 |          18.9 |
+| DR Congo             |            123.03 |               21.09 |          17.1 |
+| Equatorial Guinea    |              2.46 |                0.42 |          16.9 |
+| Indonesia            |             23.56 |                3.57 |          15.2 |
+| Central African Rep. |             12.78 |                1.84 |          14.4 |
+| Cameroon             |             23.49 |                2.85 |          12.1 |
+| Burundi              |              0.62 |                0.05 |           8.2 |
+| **Total**            |        **247.99** |           **49.16** |      **19.8** |
 
 
 <p style="font-size: 12px; text-align: left;color: #555555;"> <i><b>Data source</b>: IUCN Red List of Threatened Species (2024); UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA)</i></p>
 :::
 
-Notably, percentage coverage does not always track absolute protection. DR Congo has the largest area protected in this analysis by far, but it still represents just 20.7% of total great ape range, demonstrating that raw percentages can understate the scale of protection in large-range countries. 
+Notably, percentage coverage does not always track absolute protection. DR Congo has the largest area protected in this analysis by far, but it still represents just 17.6% of total great ape range, demonstrating that raw percentages can understate the scale of protection in large-range countries. 
 
 By contrast, Rwanda has one of the highest protection percentages, but a comparatively tiny ape range. That smaller, more concentrated range may have made sustained, effective conservation more achievable. Rwanda's protected areas have contributed to one of the few success stories in great ape conservation, as its native mountain gorilla population is the only great ape taxon known to be increasing [@plumptre2019]. 
 
@@ -1084,12 +1088,13 @@ LAYOUT_SHARED = dict(
 # --- Load country-level data ---
 ape_countries = ['Cameroon', 'Central African Republic', 'Democratic Republic of the Congo',
                   'Gabon', 'Nigeria', 'Republic of the Congo', 'Rwanda', 'Burundi',
-                  'Tanzania', 'Uganda', 'Indonesia', 'Malaysia']
+                  'Tanzania', 'Uganda', 'Equatorial Guinea', 'Indonesia', 'Malaysia']
 
 country_names = {
     'Democratic Republic of the Congo': 'DR Congo',
     'Republic of the Congo': 'Rep. of Congo',
-    'Central African Republic': 'Central Afr. Rep.'
+    'Central African Republic': 'Central Afr. Rep.',
+    'Equatorial Guinea': 'Eq. Guinea'
 }
 
 df = pd.read_csv("pa_effectiveness_by_country_combined.csv")
@@ -1113,7 +1118,7 @@ country_annual['display_name'] = country_annual['country'].replace(country_names
 
 # --- Regional totals (Africa / Asia) ---
 africa_countries = ['Cameroon', 'Central African Republic', 'Democratic Republic of the Congo',
-                     'Gabon', 'Nigeria', 'Republic of the Congo', 'Rwanda', 'Burundi',
+                     'Gabon', 'Nigeria', 'Republic of the Congo', 'Rwanda', 'Burundi', 'Equatorial Guinea',
                      'Tanzania', 'Uganda']
 asia_countries = ['Indonesia', 'Malaysia']
 
@@ -1314,6 +1319,7 @@ for i, country in enumerate(ape_countries):
     ))
 
 fig_line_pa.update_layout(
+    width = 750,
     title=dict(
         text='<b>Forest loss inside vs outside protected areas, 2001–2025</b><br>'
              '<sup><i>Expressed as % of 2000 forest extent within great ape ranges</i></sup>',
@@ -1323,7 +1329,7 @@ fig_line_pa.update_layout(
     xaxis=dict(
         tickfont=dict(size=14),
         tickmode='array',
-        tickvals=[2001, 2005, 2010, 2015, 2020, 2025],
+        tickvals=[2000, 2005, 2010, 2015, 2020, 2025],
         showgrid=False
     ),
     hoverlabel=dict(bgcolor='white', bordercolor='#333333', font_size=13, align='left'),
@@ -1391,7 +1397,7 @@ A note on interpretation. These comparisons show that forest loss is associated 
 ## Conclusion
 It is difficult to overstate the seriousness of the situation facing great apes in the wild today. All four genera are on the brink of extinction. The countries they inhabit lost a combined 84 million hectares of tree cover in just the past 25 years, equivalent to 11.8% of their tree cover extent in 2000. The cause of forest loss varies by country, but the primary drivers are agricultural conversion and logging. 
 
-Governments have established protected areas to slow this trend. This analysis found that forest loss is substantially lower within protected areas in great ape ranges: 63% in African countries and 73% in Asian countries. While this is an encouraging result, only about a quarter of confirmed ape ranges fall within protected areas. Effectiveness also varies greatly by country. In Malaysia, the rate of forest loss was 94% less within protected great ape ranges, a striking result that could support the case for further establishment and enforcement of PAs in the region. Conversely, the rate of loss in countries like the DR Congo and Republic of Congo was closer to 55-60% lower within PAs than outside of them - still meaningful, but a noticeably smaller effect. Protection also appears to be more effective against deliberate clearing and logging than against unpredictable climate events, as Indonesia's 2015–16 fire season illustrated, when loss inside protected areas briefly exceeded loss outside them entirely. 
+Governments have established protected areas to slow this trend. This analysis found that forest loss is substantially lower within protected areas in great ape ranges: 63% in African countries and 73% in Asian countries. While this is an encouraging result, only about a fifth of confirmed ape ranges fall within protected areas. Effectiveness also varies greatly by country. In Malaysia, the rate of forest loss was 94% less within protected great ape ranges, a striking result that could support the case for further establishment and enforcement of PAs in the region. Conversely, the rate of loss in countries like the DR Congo and Republic of Congo was closer to 55-60% lower within PAs than outside of them - still meaningful, but a noticeably smaller effect. Protection also appears to be more effective against deliberate clearing and logging than against unpredictable climate events, as Indonesia's 2015–16 fire season illustrated, when loss inside protected areas briefly exceeded loss outside them entirely. 
 
 It is beyond the scope of this analysis to explore what specific interventions have driven the large variation in effectiveness among countries. Enforcement capacity, funding, community engagement, remoteness, threat types (fire versus deliberate clearing, for instance), all likely play a role, and disentangling them would require research beyond what satellite-derived forest data alone can offer. 
 
@@ -1458,7 +1464,6 @@ The full analysis, including the raster processing pipeline used to compute prot
 - **Tree canopy cover**:The lower threshold of tree canopy cover (10%) was chosen deliberately, as great apes often persist in degraded, fragmented, and open-canopy forest. A higher threshold would exclude loss in precisely the marginal habitat where range contraction occurs. Note that Global Forest Watch's own headline statistics use a 30% canopy threshold. Figures presented here will therefore differ from those reported on GFW's public country dashboards.
 - **Range vs. habitat.**: IUCN range polygons delineate the outer boundary of a species' known or inferred distribution; they include non-forest and unoccupied land, and are therefore larger than the area of suitable habitat within them. Refining range to Area of Habitat by intersecting with land cover and elevation would yield a more precise denominator and is a logical extension of this work.
 - **Causal interpretation**: The protected area effectiveness comparisons in this analysis are associative, not causal; see the discussion following [Does protection reduce forest loss?](#does-protection-reduce-forest-loss) for a fuller treatment of this limitation.
-- **Known limitation, pixel-count precision.** During development, a double-counting issue was identified in a subset of multi-species range countries (where geographically overlapping species' ranges were processed independently rather than merged before analysis). A corrective fix was implemented but not yet re-run across the full pipeline at time of publication; the country-level and regional effectiveness figures reported here may shift modestly once reprocessed. This does not affect the coverage-percentage figures (Protected areas section), which use a separately validated pipeline.
 
 ## Sources
 
