@@ -313,7 +313,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Load data
-df = pd.read_csv('Forest_data.csv', encoding='latin-1')
+df = pd.read_csv('data/Forest_data.csv', encoding='latin-1')
 
 ape_countries = [
     'Democratic Republic of the Congo', 'Cameroon', 'Gabon',
@@ -904,7 +904,7 @@ What immediately jumps out from the figure is the large proportion of great ape 
 #| output: false
 import plotly.graph_objects as go
 
-coverage_df = pd.read_csv("pa_coverage_by_country.csv")
+coverage_df = pd.read_csv('data/pa_coverage_by_country.csv')
 
 coverage_df['range_area_mha'] = coverage_df['range_area_ha'] / 1_000_000
 coverage_df['pa_area_mha'] = coverage_df['pa_area_ha'] / 1_000_000
@@ -1102,7 +1102,7 @@ country_names = {
     'Equatorial Guinea': 'Eq. Guinea'
 }
 
-df = pd.read_csv("pa_effectiveness_by_country_combined.csv")
+df = pd.read_csv('data/pa_effectiveness_by_country_combined.csv')
 df['loss_pixels_inside'] = (df['loss_pct_inside_pa'] / 100) * df['pixels_inside_pa']
 df['loss_pixels_outside'] = (df['loss_pct_outside_pa'] / 100) * df['pixels_outside_pa']
 
