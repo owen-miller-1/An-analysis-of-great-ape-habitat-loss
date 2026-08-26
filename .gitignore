@@ -6,4 +6,5 @@ _site/
 .quarto/
 *_files/
 *.quarto_ipynb*
+.ipynb_checkpoints/
 MAMMALS_TERRESTRIAL_ONLY/

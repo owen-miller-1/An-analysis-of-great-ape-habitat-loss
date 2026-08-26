@@ -3,7 +3,7 @@ title: "The plight of great apes"
 jupyter: python3
 subtitle: "A spatial analysis of tree cover loss and protected area effectiveness, 2001–2025"
 author: "Owen Miller"
-date: August 20, 2026
+date: August 24, 2026
 format:
   html:
     theme: flatly
@@ -66,7 +66,7 @@ th, td {
 >
 > — John Mitani (primatologist, University of Michigan) [@sherburne2024]
 
-*This analysis examines 25 years of satellite-derived tree cover data within the ranges of all four great ape genera: chimpanzees, gorillas, bonobos, and orangutans. Between 2001 and 2025, primary great ape range countries lost approximately 84 million hectares of tree cover, equivalent to 11.8% of their combined tree cover extent in 2000. The rate of forest loss is substantially lower in protected areas, by roughly 63% in Africa and 73% in Asia. Yet only a fifth of known great ape habitat falls within protected areas. The data suggest that protection helps, but far too little habitat is protected, and loss continues even within protected boundaries. Without urgent action, the forests these animals depend on may disappear within our lifetime. And with them, our closest relatives on Earth.*      
+*This analysis examines 25 years of satellite-derived tree cover data within the ranges of all four great ape genera: chimpanzees, gorillas, bonobos, and orangutans. Between 2001 and 2025, core great ape range countries lost approximately 84 million hectares of tree cover, equivalent to 11.8% of their combined tree cover extent in 2000. The rate of forest loss is substantially lower in protected areas, by roughly 63% in Africa and 73% in Asia. Yet only a fifth of known great ape habitat falls within protected areas. The data suggest that protection helps, but far too little habitat is protected, and loss continues even within protected boundaries. Without urgent action, the forests these animals depend on may disappear within our lifetime. And with them, our closest relatives on Earth.*      
 
 
 ## Overview
@@ -289,22 +289,22 @@ function toggleCard(name) {
 ```
 <div style="height: 30px;"></div>
 
-Even when considering the upper bounds of these estimates, the total population of great apes remaining on Earth is less than a million individuals. Some species have declined by over 90% since the turn of the 20th century. Great apes face a range of human-driven threats, including poaching, civil conflict, disease transmission and the illegal wildlife trade, but it is largely agreed that the most pervasive threat to their existence in the wild is the destruction of their forest habitat.     
+Even when considering the upper bounds of these estimates, the total population of great apes remaining on Earth is less than a million individuals. Some species, the Bornean Orangutan in particular, have declined by at least 60% between 1950 and 2010, and likely surpassed 80% by 2025 [@ancrenaz2024]. Great apes face a range of human-driven threats, including poaching, civil conflict, disease transmission and the illegal wildlife trade, but it is largely agreed that the most pervasive threat to their existence in the wild is the destruction of their forest habitat.     
 
 ## Methodology
 
 ### Scope
-This analysis covers 13 countries representing the core great ape range across equatorial Africa and Southeast Asia: Cameroon, Central African Republic, Democratic Republic of the Congo, Equatorial Guinea, Gabon, Nigeria, Republic of the Congo, Rwanda, Burundi, Tanzania, Uganda, Indonesia, and Malaysia. Full native chimpanzee range extends further into West and parts of East Africa, and is not represented here.
+This analysis covers 13 countries representing the core great ape range across equatorial Africa and Southeast Asia: Cameroon, Central African Republic, Democratic Republic of the Congo, Equatorial Guinea, Gabon, Nigeria, Republic of the Congo, Rwanda, Burundi, Tanzania, Uganda, Indonesia, and Malaysia. Full native chimpanzee range extends further into West Africa, home to the Western Chimpanzee, and a small, poorly surveyed area in South Sudan; neither is represented here. 
 
 ### Data sources
-Forest cover data is sourced from the Hansen Global Forest Change (GFC) dataset (GFC-2025-v1.13) [@hansen2013]. Forest is defined as areas with tree canopy cover greater than 10% in 2000, following the Food and Agricultural Organization definition. Protected area boundaries are sourced from the World Database on Protected Areas [@unepwcmc2026], and great ape range polygons from the IUCN Red List of Threatened Species spatial data. Methodological detail, including the rationale for the canopy threshold and the distinction between mapped range and true habitat, is available in [Methodological notes](#methodological-notes) below. See [Sources](#sources) for full citations. 
+Forest cover data is sourced from the Hansen Global Forest Change (GFC) dataset (GFC-2025-v1.13) [@hansen2013]. In this analysis, forest is defined as areas with tree canopy cover greater than 10%, following the Food and Agricultural Organization (FAO) definition. Protected area boundaries are sourced from the World Database on Protected Areas (WDPA) [@unepwcmc2026], and great ape range polygons from the IUCN Red List of Threatened Species spatial data. Methodological detail, including the rationale for the canopy threshold and the distinction between mapped range and true habitat, is available in [Methodological notes](#methodological-notes) below. See [Sources](#sources) for full citations. 
 
 ### Approach
-The protected area effectiveness analysis clips Hansen raster data to confirmed great ape range polygons and classifies pixels as inside or outside protected areas using WDPA boundaries, comparing cumulative and annual forest loss rates (as a percentage of 2000 forest extent) between the two groups.
+The protected area effectiveness analysis clips Hansen raster data to confirmed great ape range polygons and classifies pixels as inside or outside protected areas using WDPA boundaries. Cumulative and annual forest loss rates (as a percentage of 2000 forest extent) are then compared between the two groups.
 
 ## Habitat loss
 
-Most gorillas, chimpanzees and bonobos live in tropical rainforests across equatorial Africa, while orangutans are native to the forests of Southeast Asia, forests that are disappearing at an alarming rate due to human activity. The chart below illustrates the percentage and cumulative total tree cover loss in core great ape range countries from 2001 to 2025. Select the tabs to toggle between the two views. Annual loss is expressed as a percentage of each country's forest extent in 2000; cumulative loss is shown in total hectares. 
+Most gorillas, chimpanzees and bonobos live in tropical rainforests across equatorial Africa, while orangutans are native to the forests of Southeast Asia, forests that are disappearing at an alarming rate due to human activity. The chart below illustrates the annual percentage and cumulative  tree cover loss in core great ape range countries from 2001 to 2025. Select the tabs to toggle between the two views. Annual loss is expressed as a percentage of each country's forest extent in 2000; cumulative loss is shown in total hectares. 
 
 
 ```{python}
@@ -386,12 +386,17 @@ fig_heat.update_layout(
     height=600,
     margin=dict(t=60, b=130),
     xaxis=dict(
+        fixedrange = True,
         tickmode='array',
         tickvals=[2001, 2005, 2010, 2015, 2020, 2025],
 	range=[2000.5, 2025.5],
         tickfont=dict(size=13)
     ),
-    yaxis=dict(tickfont=dict(size=13)),
+    yaxis=dict(
+        fixedrange = True,
+        tickfont=dict(size=13)
+        ),
+        dragmode = False,
     modebar_remove=['pan2d', 'select2d', 'lasso2d', 'zoom2d', 'zoomIn2d',
                     'zoomOut2d', 'autoScale2d', 'resetScale2d']
 )
@@ -478,16 +483,16 @@ fig_bar.show()
 
 <div style="height: 15px;"></div>
 
-Orangutan habitat is under immense pressure. In just the last 25 years, Malaysia and Indonesia have lost tree cover equivalent to 33% and 20% of their 2000 extent, respectively. The tropical forests in these countries are the last places on Earth where wild orangutans exist. The primary drivers of deforestation in this region are the conversion of forest to permanent agriculture, including palm oil plantations, and industrial logging (both legal and illegal). Wildfires linked to land clearing are an additional driver in Indonesia.
+Orangutan habitat is under immense pressure. In just the last 25 years, Malaysia and Indonesia have lost tree cover equivalent to 33% and 20% of their 2000 extent, respectively. The tropical forests in these countries are the last places on Earth where wild orangutans exist. The primary drivers of loss in this region are the conversion of forest to permanent agriculture, including palm oil plantations, and industrial logging (both legal and illegal). Wildfires linked to land clearing are an additional driver in Indonesia.
 
-African countries inhabited by apes lost a combined 40.6 million hectares of forest between 2001 and 2025, an area larger than Germany. The Democratic Republic of the Congo, which contains crucial habitat for all three species of African great apes, accounts for more than half of this figure. In Africa, the leading cause of deforestation is agricultural expansion, with both permanent agriculture and shifting cultivation as dominant drivers. 
+African countries inhabited by apes lost a combined 40.6 million hectares of forest between 2001 and 2025, an area larger than Germany. The Democratic Republic of the Congo, which contains crucial habitat for all three species of African great apes, accounts for more than half of this figure. In Africa, the leading cause of tree cover loss is agricultural expansion, with both permanent agriculture and shifting cultivation as dominant drivers. 
 
 The speed at which these forests are declining is alarming. Considering the other threats great ape populations face from encroaching humans (poaching, disease transmission), effective protection of their remaining habitat is vital. 
 
 
 ## Protected areas
 
-One of the primary ways governments go about slowing deforestation is through the establishment of protected areas (PAs). Protected areas are clearly defined geographical spaces which are recognized and managed through a variety of legal and other means to conserve nature [@dudley2008]. With proper enforcement, PAs can be an effective strategy to protect wildlife. However, enforcement of protection varies widely around the world. A variety of factors, chief among them insufficient governmental capacity, corruption, and industrial/economic pressure, result in many areas only being *nominally* protected. 
+One of the primary ways governments go about slowing forest loss is through the establishment of protected areas (PAs). Protected areas are clearly defined geographical spaces which are recognized and managed through a variety of legal and other means to conserve nature [@dudley2008]. With proper enforcement, PAs can be an effective strategy to protect wildlife. However, enforcement of protection varies widely around the world. A variety of factors, chief among them insufficient governmental capacity, corruption, and industrial/economic pressure, result in many areas only being *nominally* protected. 
 
 The IUCN classifies PAs into seven categories, ranging from restricted visitation outside of sanctioned scientific research to allowable resource extraction. 
 
@@ -507,9 +512,9 @@ The IUCN classifies PAs into seven categories, ranging from restricted visitatio
 :::
 <div style="height: 10px;"></div>
 
-Many protected areas within great ape ranges are listed as 'Not Applicable' or 'Not Reported' in IUCN's World Database on Protected Areas (WDPA), indicating incomplete reporting rather than absence of protection. For example, Volcanoes National Park in Rwanda, a critical mountain gorilla sanctuary, is listed without an IUCN category despite being a well-managed Category II national park.
+Many protected areas within great ape ranges are listed as 'Not Applicable' or 'Not Reported' in the World Database on Protected Areas (WDPA), maintained by UNEP-WCMC and IUCN, indicating incomplete reporting rather than absence of protection. For example, Volcanoes National Park in Rwanda, a critical mountain gorilla sanctuary, is listed without an IUCN category despite being a well-managed Category II national park.
 
-The figure below shows protected areas overlaid with great ape ranges. Unlike the country-level figures above, the analysis that follows is confined *specifically* to land within these ranges, examining whether protection status meaningfully reduces forest loss. The Africa map groups species by genus (gorilla, chimpanzee, bonobo); the Asia map shows the three orangutan species individually, given their distinct ranges. 
+The figure below shows protected areas overlaid with great ape ranges. Unlike the country-level figures above, the analysis that follows is confined *specifically* to land within these ranges, examining whether protection status is associated with reduced forest loss. The Africa map groups species by genus (gorilla, chimpanzee, bonobo); the Asia map shows the three orangutan species individually, given their distinct ranges. 
 
 ```{python}
 #| output: false
@@ -1061,7 +1066,7 @@ fig_coverage_area.show()
 <p style="font-size: 12px; text-align: left;color: #555555;"> <i><b>Data source</b>: IUCN Red List of Threatened Species (2024); UNEP-WCMC and IUCN (2026), Protected Planet: The World Database on Protected Areas (WDPA)</i></p>
 :::
 
-Notably, percentage coverage does not always track absolute protection. DR Congo has the largest area protected in this analysis by far, but it still represents just 17.6% of total great ape range, demonstrating that raw percentages can understate the scale of protection in large-range countries. 
+Notably, percentage coverage does not always track absolute protection. DR Congo has the largest area protected in this analysis by far, but it still represents just 17.1% of total great ape range, demonstrating that raw percentages can understate the scale of protection in large-range countries. 
 
 By contrast, Rwanda has one of the highest protection percentages, but a comparatively tiny ape range. That smaller, more concentrated range may have made sustained, effective conservation more achievable. Rwanda's protected areas have contributed to one of the few success stories in great ape conservation, as its native mountain gorilla population is the only great ape taxon known to be increasing [@plumptre2019]. 
 
@@ -1390,14 +1395,14 @@ Another notable pattern appears in Indonesia. Ranges within Indonesian protected
 
 The data also point to effective protection in Rwanda, where high protection percentages correspond to substantially reduced forest loss by over 10-fold (90.4% less), reinforcing the earlier point that Rwanda's high coverage percentage reflects a real conservation outcome, not just a favorable statistic. However, Rwanda's extremely small ape range is likely also a factor in this effectiveness; a smaller, more concentrated area may simply be easier to protect consistently than a larger one. 
 
-Republic of Congo offers a useful comparison. It has a much larger ape range, but a comparable protection percentage. Here, forest loss inside protected areas was only about 2 percentage points lower than outside over the full period (a 54.5% relative reduction), a far smaller gap than Rwanda's. Concerningly, by 2024 and 2025, that gap had nearly disappeared, with loss rates inside and outside protected areas converging to nearly identical levels.
+Republic of Congo offers a useful comparison. It has a much larger ape range, but a similar protection percentage. Here, forest loss inside protected areas was only about 2 percentage points lower than outside over the full period (a 54.5% relative reduction), a far smaller gap than Rwanda's. Concerningly, by 2024 and 2025, that gap had nearly disappeared, with loss rates inside and outside protected areas converging to nearly identical levels.
 
-A note on interpretation. These comparisons show that forest loss is associated with protection status, not that protection *caused* the difference. Protected areas are rarely placed at random. Governments tend to protect land that is steep, remote, distant from roads and markets, and poorly suited to agriculture, the land least likely to have been cleared in any case. Some portion of the gap observed here therefore reflects where protected areas were placed rather than what protection accomplished, and the true effect of protection is likely smaller than these raw differences suggest. Quantifying it properly requires matching protected pixels to unprotected ones with comparable slope, elevation, and distance to roads and settlements, then comparing loss within matched pairs [@joppa2009]. That analysis is beyond the scope of this piece, but it is the natural next step, and the figures here should be read as an *upper bound* on protection's effect rather than an estimate of it.
+These comparisons show that forest loss could be correlated with protection status, but not that protection necessarily *caused* the difference. Protected areas are rarely placed at random. Governments tend to protect land that is steep, remote, far from populated centres, and poorly suited to agriculture or other development. In other words, the land least likely to have been cleared in any case. Some portion of the gap observed here therefore reflects where protected areas were placed rather than what protection accomplished, and the true effect of protection is likely smaller than what these raw differences suggest. Quantifying the effect of protection holistically would require matching protected pixels to unprotected ones with comparable characteristics (human population density, steepness, fertility, proximity to roads, etc.), then comparing loss within matched pairs [@joppa2009]. That analysis is beyond the scope of this piece, but it is the natural next step. The figures here should be therefore be interpreted as an *upper bound* of protection's effect rather than an estimate of it.
 
 ## Conclusion
-It is difficult to overstate the seriousness of the situation facing great apes in the wild today. All four genera are on the brink of extinction. The countries they inhabit lost a combined 84 million hectares of tree cover in just the past 25 years, equivalent to 11.8% of their tree cover extent in 2000. The cause of forest loss varies by country, but the primary drivers are agricultural conversion and logging. 
+It is difficult to overstate the seriousness of the situation facing great apes in the wild today. All four genera are on the brink of extinction. The countries they inhabit lost a combined 84 million hectares of forest cover in just the past 25 years, equivalent to 11.8% of forest extent in 2000. The cause of forest loss varies by country, but the primary drivers are agricultural conversion and logging. 
 
-Governments have established protected areas to slow this trend. This analysis found that forest loss is substantially lower within protected areas in great ape ranges: 63% in African countries and 73% in Asian countries. While this is an encouraging result, only about a fifth of confirmed ape ranges fall within protected areas. Effectiveness also varies greatly by country. In Malaysia, the rate of forest loss was 94% less within protected great ape ranges, a striking result that could support the case for further establishment and enforcement of PAs in the region. Conversely, the rate of loss in countries like the DR Congo and Republic of Congo was closer to 55-60% lower within PAs than outside of them - still meaningful, but a noticeably smaller effect. Protection also appears to be more effective against deliberate clearing and logging than against unpredictable climate events, as Indonesia's 2015–16 fire season illustrated, when loss inside protected areas briefly exceeded loss outside them entirely. 
+Governments have established protected areas, partly to slow this concerning trend. This analysis found that forest loss is substantially lower within protected areas in great ape ranges: 63% less in African countries and 73% in Asian countries. While this is an encouraging result, only about a fifth (19.8%) of confirmed ape ranges fall within protected areas. Effectiveness also varies greatly by country. In Malaysia, the rate of forest loss was 94% less within protected great ape ranges, a striking result that could support the case for further establishment and enforcement of PAs in the region. Conversely, the rate of loss in countries like the DR Congo and Republic of Congo was closer to 55-60% lower within PAs than outside of them. These are still meaningful results, but a noticeably smaller effect. Protection also appears to be more effective against deliberate clearing and logging than against unpredictable climate events, as Indonesia's 2015–16 fire season illustrated, when loss inside protected areas briefly exceeded loss outside them entirely. 
 
 It is beyond the scope of this analysis to explore what specific interventions have driven the large variation in effectiveness among countries. Enforcement capacity, funding, community engagement, remoteness, threat types (fire versus deliberate clearing, for instance), all likely play a role, and disentangling them would require research beyond what satellite-derived forest data alone can offer. 
 
@@ -1464,6 +1469,8 @@ The full analysis, including the raster processing pipeline used to compute prot
 - **Tree canopy cover**:The lower threshold of tree canopy cover (10%) was chosen deliberately, as great apes often persist in degraded, fragmented, and open-canopy forest. A higher threshold would exclude loss in precisely the marginal habitat where range contraction occurs. Note that Global Forest Watch's own headline statistics use a 30% canopy threshold. Figures presented here will therefore differ from those reported on GFW's public country dashboards.
 - **Range vs. habitat.**: IUCN range polygons delineate the outer boundary of a species' known or inferred distribution; they include non-forest and unoccupied land, and are therefore larger than the area of suitable habitat within them. Refining range to Area of Habitat by intersecting with land cover and elevation would yield a more precise denominator and is a logical extension of this work.
 - **Causal interpretation**: The protected area effectiveness comparisons in this analysis are associative, not causal; see the discussion following [Does protection reduce forest loss?](#does-protection-reduce-forest-loss) for a fuller treatment of this limitation.
+-**Double counting issues**: During the analysis, two double counting issues were identified. The WDPA is an aggregation of many different sources, which sometimes result in overlap of protected area boundaries and duplicates for the same site. For example, Odzala-Kokoua National Park in the Republic of Congo has three separate WDPA records (national park, UNESCO Biosphere Reserve, and Ramsar wetland designations) which all appear twice in the source data. The original pipeline summed all protected area polygons independently, resulting in an inflated total in countries with duplicate or overlapping records. A dissolve was added to merge overlapping boundaries before calculating area, and the coverage figures in the [Protected areas](#protected-areas) section reflect the corrected calculation. 
+The other double counting issue was identified in the [Does protection reduce forest loss?](#does-protection-reduce-forest-loss) pipeline. This occurred in areas with overlapping great ape range polygons. For example, Nigeria has some areas where gorillas live alongside chimpanzees. The original process summed both ranges independently, which inflated the total ape range in countries with overlapping ranges. A dissolve was added here as well to merge ranges, and the results presented here represent the corrected calculation. 
 
 ## Sources
 
