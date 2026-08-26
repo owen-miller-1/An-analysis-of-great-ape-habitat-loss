@@ -516,7 +516,6 @@ Many protected areas within great ape ranges are listed as 'Not Applicable' or '
 
 The figure below shows protected areas overlaid with great ape ranges. Unlike the country-level figures above, the analysis that follows is confined *specifically* to land within these ranges, examining whether protection status is associated with reduced forest loss. The Africa map groups species by genus (gorilla, chimpanzee, bonobo); the Asia map shows the three orangutan species individually, given their distinct ranges. 
 
-```{python}
 #| output: false
 import folium
 from folium import GeoJson, LayerControl
@@ -562,7 +561,15 @@ species_colors = {
 
 # Build map
 m_africa = folium.Map(location=[2, 19], zoom_start=5, tiles=None)
-folium.TileLayer('CartoDB positron', control=False).add_to(m_africa)
+
+# Add basemap from Carto
+folium.TileLayer(
+    tiles='https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=cb1_28oy_1_05571f4015c3314d60d78268',
+    attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains='abcd',
+    max_zoom=20,
+    control=False
+).add_to(m_africa)
 
 # Add one layer per species
 layer_groups = {
@@ -702,8 +709,14 @@ species_colors = {
 # Build map
 m_asia = folium.Map(location=[1, 110], zoom_start=5, tiles=None)
 
-#Add basemap from Carto
-folium.TileLayer('CartoDB positron', control=False).add_to(m_asia)
+# Add basemap from Carto
+folium.TileLayer(
+    tiles='https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=cb1_28oy_1_05571f4015c3314d60d78268',
+    attr='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains='abcd',
+    max_zoom=20,
+    control=False
+).add_to(m_asia)
 
 # Add one layer per species
 for species in asia_species:
