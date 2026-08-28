@@ -4,13 +4,22 @@ jupyter: python3
 subtitle: "A spatial analysis of tree cover loss and protected area effectiveness, 2001–2025"
 author: "Owen Miller"
 date: August 26, 2026
-google-analytics: "G-CZDTEZ3V3Y"
 format:
   html:
     theme: flatly
     toc: true
     code-tools: true
     code-fold: false
+    include-in-header:
+      text: |
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZDTEZ3V3Y"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CZDTEZ3V3Y');
+        </script>
 bibliography: references.bib
 nocite: '@*'
 execute:
