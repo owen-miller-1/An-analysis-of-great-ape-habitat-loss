@@ -289,7 +289,7 @@ function toggleCard(name) {
 ```
 <div style="height: 30px;"></div>
 
-Even when considering the upper bounds of these estimates, the total population of great apes remaining on Earth is less than a million individuals. Some species, the Bornean Orangutan in particular, have declined by at least 60% between 1950 and 2010, and likely surpassed 80% by 2025 [@ancrenaz2024]. Great apes face a range of human-driven threats, including poaching, civil conflict, disease transmission and the illegal wildlife trade, but it is largely agreed that the most pervasive threat to their existence in the wild is the destruction of their forest habitat.     
+Even when considering the upper bounds of these estimates, the total population of great apes remaining on Earth is less than a million individuals. Some species, the bornean orangutan in particular, have declined by at least 60% between 1950 and 2010, likely surpassing 80% by 2025 [@ancrenaz2024]. Great apes face a range of human-driven threats, including poaching, civil conflict, disease transmission, and the illegal wildlife trade, but it is largely agreed that the most pervasive threat to their existence in the wild is the destruction of their forest habitat.     
 
 ## Methodology
 
