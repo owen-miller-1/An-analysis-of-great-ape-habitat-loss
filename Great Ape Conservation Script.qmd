@@ -549,9 +549,10 @@ from shapely.geometry import box
 core_bbox = box(5, -15, 50, 15)
 
 ape_africa = ape_ranges[ape_ranges['sci_name'].isin(africa_species)].copy()
-ape_africa = ape_africa[ape_africa.intersects(core_bbox)]
+ape_africa = ape_africa.clip(core_bbox)
 
-pa_africa = protected_areas[protected_areas['sci_name'].isin(africa_species)]
+pa_africa = protected_areas[protected_areas['sci_name'].isin(africa_species)].copy()
+pa_africa = pa_africa.clip(core_bbox)
 
 species_labels = {
     'Gorilla gorilla':  'Gorilla',
